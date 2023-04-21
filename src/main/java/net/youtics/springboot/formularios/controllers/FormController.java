@@ -21,7 +21,7 @@ public class FormController {
     {
         Usuario usuario = new Usuario();
         model.addAttribute("titulo", "Crear Usuario");
-        model.addAttribute("user", usuario);
+        model.addAttribute("usuario", usuario);
         return "form";
     }
 
@@ -30,7 +30,7 @@ public class FormController {
      * primero el objeto a validar y luego el result
      * */
     @PostMapping("/form")
-    public String procesar(@Valid @ModelAttribute("user") Usuario usuario, BindingResult result, Model model)
+    public String procesar(@Valid Usuario usuario, BindingResult result, Model model)
     {
         model.addAttribute("titulo", "Resultado Usuario");
         if(result.hasErrors())
