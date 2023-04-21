@@ -1,19 +1,22 @@
 package net.youtics.springboot.formularios.models.domain;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import jakarta.validation.constraints.Size;
 
 public class Usuario {
     private String identificador;
-    @NotEmpty
+    @NotEmpty(message = "El nombre es obligatorio")
     private String nombre;
-    @NotEmpty
+    @NotEmpty(message = "El apellido es obligatorio")
     private String apellido;
     @NotEmpty
+    @Size(min = 3, max = 8)
     private String username;
     @NotEmpty
     private String password;
     @NotEmpty
+    @Email(message = "Correo con formato incorrecto")
     private String email;
 
     public String getUsername() {
